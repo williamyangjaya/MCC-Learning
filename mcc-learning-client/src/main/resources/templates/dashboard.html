@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+    <div th:replace="fragments/head :: head"></div>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Sidenav -->
+    <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav th:replace="fragments/topnav:: topnav"></nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-9">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">
+                                    <div class="card-body">
+                                    <img src="../img/dashboard/Attendance.png" class="card-img-top mb-3" alt="centered image" height="190" width="10">
+                                        <h4 class="card-title"><b>Attendance</b></h4>
+                                        <p class="card-text">A feature that is used to perform attendance during the coding camp training process.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">   
+                                    <div class="card-body">
+                                    <img src="../img/dashboard/ProjectLibrary.png" class="card-img-top mb-3" alt="centered image" height="190" width="10">
+                                        <h4 class="card-title"><b>Project Library</b></h4>
+                                        <p class="card-text">A feature used to one of the requirements so that trainee can pass the coding camp training.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">
+                                    <div class="card-body">
+                                    <img src="../img/dashboard/LearningClass.png" class="card-img-top mb-3" alt="centered image" height="190" width="10">
+                                        <h4 class="card-title"><b>Learning Class</b></h4>
+                                        <p class="card-text">A feature that is used so the trainee can access the learning module and do the quiz.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">
+                                    <div class="card-body">
+                                    <img src="../img/dashboard/Feedback.png" class="card-img-top mb-3" alt="centered image" height="190" width="10">
+                                        <h4 class="card-title"><b>Feedback Form</b></h4>
+                                        <p class="card-text">A feature that is used as an evaluation forum for trainers for the teaching process in the next batch of MCC.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <footer th:replace="fragments/footer :: footer"></footer>
+                    </div>
+                </div>
+                <!-- Argon Scripts -->
+                <div th:replace="fragments/script :: script"></div>
+
+                </body>
+
+                </html>

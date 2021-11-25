@@ -1,0 +1,44 @@
+<!--MODAL INSERT MODULE (TRAINER)-->
+
+<div class="modal-insert-exam" th:fragment="modal-insert-exam">
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalInsertExam" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Exam Module</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formUploadAnswer">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="examName">Exam Name</label>
+                                <input type="text" class="form-control" id="examName" readonly>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="btnDownloadExam">Exam</label></br>
+                                <a class='btn btn-primary text-white' id='btnDownloadExam' target="_blank">Download Exam</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline">Deadline</label>
+                            <input type="text" class="form-control" id="deadline" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadAnswer">Upload Answer</label>
+                            <input type="file" class="form-control-file" id="uploadAnswer">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Upload Answer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

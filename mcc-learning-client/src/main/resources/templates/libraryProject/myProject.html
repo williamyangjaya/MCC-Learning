@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Project</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+
+
+<body>
+    <!-- Sidenav -->
+    <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav th:replace="fragments/topnav:: topnav"></nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6" id="projectKoeh">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">My Project</li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                    <div class="content">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                My Project
+                            </div>
+                            <div class="col-md-8 offset-2 position-relative" style="top: 20px">
+                                <div class="d-flex justify-content-end" th:each="p:${project}">
+                                    <button 
+                                        class='btn btn-sm btn-primary'
+                                        id="btn-submitJudul"
+                                        style="font-size: 1rem"
+                                        data-toggle="modal" 
+                                        data-target="#update-judul-project"
+                                        th:value="${p.idProject}"
+                                        onclick="getByIdForUpdateJudul()">
+
+                                        <i class='fas fa-sm fa-pencil-alt'></i> Edit Title
+                                    </button>
+                                    <button 
+                                        class='btn btn-sm btn-primary ml-3'
+                                        id="btn-submitProject"
+                                        style="font-size: 1rem"
+                                        data-toggle="modal" 
+                                        data-target="#update-my-project"
+                                        th:value="${p.idProject}"
+                                        onclick="getByIdForSubmitLink()">
+                                        <i class='fas fa-sm fa-pencil-alt'></i> Submit Project
+                                    </button>
+                                </div>
+                                <div class="card" >
+                                    <div class="card-body" th:each="p:${project}">
+                                        <h2 class="card-title text-center mb-3" th:text="${p.title}">Project Library</h2>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-5" style="border-right: 1px solid #000">
+                                                <h3 class="font-weight-bold">Member's Name</h3>
+                                                <div class="member mb-3">
+                                                    <h4 class="font-weight-normal" th:each="m:${p.name}" th:text="${m}"></h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <h3 class="font-weight-bold">Description</h3>
+                                                <p th:text="${p.decription}"></p>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <div >
+                                                <a th:href="@{${p.erd}}" th:target='_blank'  class="btn btn-primary">ERD</a>
+                                                <a th:href="@{${p.uml}}" target="_blank" class="btn btn-primary">UML</a>
+                                                <a th:href="@{${p.skema}}" target="_blank" class="btn btn-primary">Scheme</a>
+                                                <a th:href = "@{${p.link}}" target="_blank" class="btn btn-primary">Github</a>
+                                            </div>
+
+                                            <div>
+                                                <a th:href="@{/history/my-history}" class="btn btn-primary">History</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header bg-primary pb-9" id="createProject">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">My Project</li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                    <div class="content pb-9">
+                        <div class="card mb-4" >
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Submit Project Title
+                            </div>
+                            <div class="card-body">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#create-judul"
+                                                > 
+                                            <i class="fas fa-plus" aria-hidden="true"></i> Submit Project Title
+                                        </button>
+
+
+                                        <tbody>
+
+                                        </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+
+
+        <div th:replace="fragments/script :: script"></div> 
+
+        <!--<script th:src="@{/js/libraryProject/submit-judul.js}"></script>-->
+        <div th:replace="libraryProject/modal-add-judul :: modal-add-judul"></div>
+        <div th:replace="libraryProject/modal-edit-project :: modal-edit-project"></div>
+        <div th:replace="libraryProject/modal-edit-judul :: modal-edit-judul"></div>
+
+        <script th:src="@{/js/libraryProject/myProject.js}"></script>
+</body>
+</html>

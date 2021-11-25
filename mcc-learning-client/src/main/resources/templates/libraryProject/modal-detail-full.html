@@ -1,0 +1,73 @@
+<!--INI PAGE MODAL EDIT BUTTON DETAIL FULL SUBMISSION (TRAINER)-->
+<div class="modal-detail-full" th:fragment="modal-detail-full">
+
+    <div class="modal fade" id="full-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Full Project MCC</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="detailProject">
+                        <div class="form-group">
+                            <label for="name">Trainee Name</label>
+                            <input type="text" id="nama_trainee" class="form-control" readonly="readonly"> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Project Title</label>
+                            <input type="text" id="judul_trainee" class="form-control" readonly="readonly"> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="decription">Description</label>
+                            <textarea id="deskripsi_trainee" class="form-control" style="height: 100px" 
+                                      readonly="readonly"> </textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="erd">ERD</label>
+                            <a href="" target='_blank' type="text" id="erd_trainee" class="form-control">Click Here</a> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="uml">UML</label>
+                            <a href="" target='_blank' type="text" id="uml_trainee" class="form-control">Click Here</a>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skema">Scheme</label>
+                            <a href="" target='_blank' type="text" id="skema_trainee" class="form-control">Click Here</a>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="link">Link Project</label>
+                            <a href="" target='_blank' type="text" id="link_trainee" class="form-control">Click Here</a>
+
+                        </div>
+
+                        <div class="form-floating">
+                            <label for="pesan">Message</label>
+                            <input type="textarea" id="pesan" class="form-control" style="height: 100px" placeholder="Message"> 
+                        </div>
+
+
+
+                </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                    <button type="button" value="true" id="statusApproved" class="btn btn-success" onclick="create()"> Approved </button>
+                    <button type="button" value="false" id="statusRejected" class="btn btn-danger" onclick="rejectTitle()"> Rejected </button>
+                    <button data-dismiss="modal" class="btn btn-primary col-2"> Back</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

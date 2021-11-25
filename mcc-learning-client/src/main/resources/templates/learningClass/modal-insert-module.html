@@ -1,0 +1,39 @@
+<!--MODAL INSERT MODULE (TRAINER)-->
+
+<div class="modal-insert-module" th:fragment="modal-insert-module">
+
+    <div class="modal fade" id="insert-module" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Module</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="insertModule" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" class="form-control" placeholder="Title Module" required>
+                            <div class="invalid-feedback">
+                                Please enter your title module.
+                            </div><br>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="file">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button data-dismiss="modal" class="btn btn-danger col-2">Back</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

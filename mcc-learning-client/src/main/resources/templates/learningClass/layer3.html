@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Learning Class</title>
+    <div th:replace="fragments/head :: head"></div>
+    <link rel="stylesheet" href="/css/learningClass/style.css"></link>
+</head>
+
+<body>
+    <!-- Sidenav -->
+    <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav th:replace="fragments/topnav:: topnav"></nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-9">
+            <div class="container-fluid">
+                <div class="header-body pb-4">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                    <li class="breadcrumb-item text-uppercase"><a th:href="@{/module/class}" th:text="${class.name}"></a></li>  
+                                    <li class="breadcrumb-item text-uppercase" ><a th:href="@{/module/category?idClass={idClass} (idClass=${class.idClass})}" th:text="${module[0].category}">Category</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Information Class</li>
+                                    <li class="breadcrumb-item d-none" id="idClass" th:text="${class.idClass}" th:value="${class.idClass}"></li>
+                                    <li class="breadcrumb-item d-none" id="categoryName" th:text="${module[0].category}" th:value="${class.name}"></li>
+                                    <li class="breadcrumb-item d-none" id="employeeId" th:text='${employee}'></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-link active navtab" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Informasi Kelas</a>
+                            <a class="nav-link navtab" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Materi</a>
+                            <!--                            <a class="nav-link navtab" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Exam</a>
+                                                        <a class="nav-link navtab" id="nav-upload-exam-tab" data-toggle="tab" href="#nav-upload-exam" role="tab" aria-controls="nav-upload-exam" aria-selected="false">Upload Answer</a>-->
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="jumbotron">
+                                <h1 class="display-4">Informasi Class</h1>
+                                <p class="lead">Fundamental is a learning about the basics of programming.</p>
+                                <hr class="my-4">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade bg-secondary materi-content" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="jumbotron">
+                                <h1 class="display-4 ml-3 mb-3 text-uppercase">Module <span class="d-inline font-weight-bold" th:text="${class.name}"></span></h1>
+                                <div class="col">
+                                    <div class="d-flex justify-content-end" sec:authorize="hasRole('TRAINER')">
+                                        <button type="button" class="btn btn-warning text-white mb-3 " data-toggle="modal" data-target="#moduleModal">
+                                            Upload Module
+                                        </button>
+                                        <button type="button" class="btn btn-danger text-white mb-3 " data-toggle="modal" data-target="#examModal">
+                                            Upload Exam
+                                        </button>
+                                    </div>
+                                    <div class="card mb-3" th:each="module : ${module}">
+                                        <div th:replace="learningClass/modal-insert-exam :: modal-insert-exam"></div>
+                                        <div class="card-body bg-primary rounded" >
+                                            <div class="col">
+                                                <h3 class="card-title text-white mater-title mb-0" th:text="${module.title}">Materi 1 - Data Definition Language</h3>
+                                                <p class="card-text text-white text-right" th:text="${module.createdAt}"></p>
+                                            </div>
+                                            <div class="ml-3" >
+                                                <a th:href="@{http://localhost:8082/module/downloadFile/{idModule} (idModule=${module.idModule})}" target="_blank" class="btn btn-secondary btn-sm ">Access Module</a>
+                                                <a class="btn btn-secondary btn-sm" href="#" style="text-decoration: none" data-toggle="modal" data-target="#modalInsertExam" th:attr="onclick=|getExamById('${module.idModule}','${module.title}')|" > Module Exam</a>
+                                                <a class="btn btn-warning btn-sm text-right" href="#" data-toggle="modal" >Download Answers</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="moduleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Upload Materi</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="createModule">
+                            <div class="form-group">
+                                <label for="judulModul">Judul Materi</label>
+                                <input type="text" class="form-control" id="judulModul" placeholder="Masukkan Judul Materi">
+                            </div>
+                            <input type="file" class="form-control-file mb-2" id="files" name="moduleFile">
+                            <div class="modal-footer">
+                                <button type="button" id="btnSubmitModule" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" >Upload File</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Upload Exam</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="createExam">
+                            <div class="form-group">
+                                <label for="judulModul">Nama Exam</label>
+                                <input type="text" class="form-control" id="judulModul" placeholder="Masukkan Judul Exam">
+                            </div>
+                            <div class="form-group">
+                                <label for="deadlineExam">Deadline</label></br>
+                                <input type="date" id="deadlineExam" name="deadlineExam" class="mb-3">
+                            </div>
+                            <input type="file" class="form-control-file mb-2" id="files" name="moduleFile">
+                            <div class="modal-footer">
+                                <button type="button" id="btnSubmitModule" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" >Upload File</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+
+        <script src="/js/alert/index.js"></script>
+        <div th:replace="fragments/script :: script"></div>
+        <script src="/js/learningclass/layer3.js"></script>
+        <script type="text/javascript">
+
+            $('#moduleModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+
+            $('.datepicker').datepicker({
+                inline: true
+            });
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!--INI MODAL EDIT JUDUL PROJECT (TRAINEE)-->
+
+<div class="modal-edit-judul" th:fragment="modal-edit-judul">
+
+    <div class="modal fade" id="update-judul-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Project Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="myProjectJudul" class="needs-validation" th:each="p:${project}" novalidate>
+
+
+                        <div class="form-group">
+                            <label for="nama">Trainee Name</label>
+                            <input type="text" id="nama1" class="form-control" th:value="${p.name}" readonly="readonly"> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trainer">Traineer Name</label>
+                            <input type="text" id="trainer1" class="form-control" th:value="${p.trainer}" readonly="readonly"> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="judul">Project Title</label>
+                            <input type="text" id="judul1" class="form-control" required> 
+                            <div class="invalid-feedback">
+                                Please enter your project title.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deskripsi">Description</label>
+                            <textarea type="text" id="deskripsi1" class="form-control" rows="3" required></textarea> 
+                            <div class="invalid-feedback">
+                                Please enter your description.
+                            </div>
+                        </div>
+
+                </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button data-dismiss="modal" class="btn btn-danger col-2">Back</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

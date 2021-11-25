@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head th:replace="fragments/head :: head"></head>
+    <body>
+        <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+        <!-- Main content -->
+        <div class="main-content" id="panel">
+            <!-- Topnav -->
+            <nav th:replace="fragments/topnav:: topnav"></nav>
+            <!-- Page content -->
+            <!-- Header -->
+            <div id="profile-content" class="container-fluid mt-5">
+            </div>
+        </div>
+        <!-- Header -->
+        <!-- Page content -->
+        <!-- Footer -->
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+        <!-- Argon Scripts -->
+        <div th:replace="fragments/script :: script"></div>
+        <script sec:authorize="hasRole('ROLE_TRAINER')" src="/js/profile/trainer.js"></script>
+        <script sec:authorize="hasRole('ROLE_TRAINEE')" src="/js/profile/trainee.js"></script>
+
+    </body>
+
+</html>

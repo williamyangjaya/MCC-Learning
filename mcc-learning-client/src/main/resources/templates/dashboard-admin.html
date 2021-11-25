@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+    <div th:replace="fragments/head :: head"></div>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Sidenav -->
+    <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav th:replace="fragments/topnav:: topnav"></nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">
+                                    <img src="../img/img-1.png" class="card-img-top" alt="centered image" height="190" width="10">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><b>Data Trainee</b></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">
+                                    <img src="../img/img-1.png" class="card-img-top" alt="centered image" height="190" width="10">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><b>Data Trainer</b></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">
+                                    <img src="../img/img-1.png" class="card-img-top" alt="centered image" height="190" width="10">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><b>Data Alumni</b></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 py-3 py-sm-0">
+                                <div class="card box-shadow">
+                                    <img src="../img/img-1.png" class="card-img-top" alt="centered image" height="190" width="10">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><b>Data Project</b></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <footer th:replace="fragments/footer :: footer"></footer>
+                    </div>
+                </div>
+                <!-- Argon Scripts -->
+                <div th:replace="fragments/script :: script"></div>
+
+                </body>
+
+                </html>

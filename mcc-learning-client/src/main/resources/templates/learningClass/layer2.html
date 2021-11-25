@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Learning Class</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+
+<body>
+    <!-- Sidenav -->
+    <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav th:replace="fragments/topnav:: topnav"></nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-9">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                    <li class="breadcrumb-item"><a th:href="@{/module/class}" th:text="${class.name}"></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Category</li>
+                                </ol>
+                            </nav>
+                        </div>
+
+                    </div>
+                    <!-- Card stats -->
+                    <div class="row justify-content-center pb-9">
+                        <!-- <div class="col-xl-3 col-md-6" th:object="${class}"> -->
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card  ml-2 mr-2" style="width: 18rem;">
+                                <div class="card-body" >
+                                    <h5 class="card-title">FUNDAMENTAL</h5>
+                                    <p class="card-text">Fundamental is a learning about the basics of programming.</p>
+                                    <!--<a href="#" class="btn btn-primary">Access</a>-->
+                                     <a th:href="@{layer3?idClass={idClass}&category=basic (idClass=${class.idClass})}" class="btn btn-primary">Access</a> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card  ml-2 mr-2" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">BACKEND</h5>
+                                        <p class="card-text">Backend is a learning related to Server-Side.</p>
+                                        <!--<a href="#" class="btn btn-primary">Access</a>-->
+                                        <a th:href="@{layer3?idClass={idClass}&category=be (idClass=${class.idClass})}" class="btn btn-primary">Access</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card  ml-2 mr-2" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">FRONTEND</h5>
+                                    <p class="card-text">Front-End is a learning related to the Client-Side.</p>
+                                    <!--<a href="#" class="btn btn-primary">Access</a>-->
+                                     <a th:href="@{layer3?idClass={idClass}&category=fe (idClass=${class.idClass})}" class="btn btn-primary">Access</a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+        <div th:replace="fragments/script :: script"></div>
+
+</body>
+<script th:src="@{/js/learningClass/layer2.js}"></script>
+
+</html>

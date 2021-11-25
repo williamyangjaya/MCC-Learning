@@ -1,0 +1,81 @@
+<!--INI PAGE MODAL EDIT FULL PROJECT (TRAINEE)-->
+
+<div class="modal-edit-project" th:fragment="modal-edit-project">
+
+    <div class="modal fade" id="update-my-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Full Project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="myProjectUpdate" class="needs-validation" th:each="p:${project}" novalidate>
+                        <div class="form-group">
+                            <label for="judul">Project Title</label>
+                            <input type="text" id="judul" class="form-control"  th:value="${p.title}" readonly="readonly"> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nama">Trainee Name</label>
+                            <input type="text" id="nama" class="form-control" th:value="${p.name}" readonly="readonly"> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trainer">Traineer Name</label>
+                            <input type="text" id="trainer" class="form-control" th:value="${p.trainer}" readonly="readonly"> 
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deskripsi">Description</label>
+                            <textarea type="text" id="deskripsi" class="form-control" style="height: 100px"  
+                                      placeholder="Deskripsi" rows="3" th:text="${p.decription}" readonly="readonly"></textarea> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="erd">ERD</label>
+                            <input type="text" id="erd" class="form-control" placeholder="Example: https://google.com" required> 
+                            <div class="invalid-feedback">
+                                Please enter your erd
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="uml">UML</label>
+                            <input type="text" id="uml" class="form-control" placeholder="Example: https://google.com" required> 
+                            <div class="invalid-feedback">
+                                Please enter your uml.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skema">Scheme</label>
+                            <input type="text" id="skema" class="form-control" placeholder="Example: https://google.com" required> 
+                            <div class="invalid-feedback">
+                                Please enter your skema.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="link">Link Full Project</label>
+                            <input type="text" id="link" class="form-control" placeholder="Example: https://google.com" required> 
+                            <div class="invalid-feedback">
+                                Please enter your link full project.
+                            </div>
+                        </div>
+                        <div class="modal-footer border-top-0 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success" >Submit</button>
+                            <button data-dismiss="modal" class="btn btn-danger col-2">Back</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

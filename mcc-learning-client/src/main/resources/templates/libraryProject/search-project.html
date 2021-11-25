@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Search Project</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+
+
+<body>
+    <!-- Sidenav -->
+    <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav th:replace="fragments/topnav:: topnav"></nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Search Project</li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                    <div class="content">
+                        <div class="card mb-4" >
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Search Project
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="cariTabel" class="table table-bordered table-striped table-hover-col-sm-3">
+                                        <thead>
+
+                                            <tr>
+                                                <td>No</td>
+                                                <td>Title</td>
+                                                <td>Trainee Name</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
+
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+        <div th:replace="fragments/script :: script"></div>
+
+</body>
+<script th:src="@{/js/libraryProject/search-project.js}"></script>
+<div th:replace="libraryProject/modal-detail-search :: modal-detail-search"></div>
+
+
+</html>

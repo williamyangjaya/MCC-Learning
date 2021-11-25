@@ -1,0 +1,105 @@
+<nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main" th:fragment="sidenav-dashboard">
+    <div class="scrollbar-inner">
+        <!-- Brand -->
+        <div class="sidenav-header align-items-center" style="padding-top: 25px">
+            <a href="javascript:void(0)">
+                <!--<img src="/img/logo-panjang.png" style="width: 250px; height: 90px;">-->
+                <img src="/img/logo-panjang.png" style="width: 200px; height: 60px;">
+            </a>
+        </div>
+        <div class="navbar-inner">
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                <!-- Nav items -->
+                <ul class="navbar-nav">
+                    <li class="nav-item" sec:authorize="hasRole('TRAINEE')">
+                        <a th:class="${#strings.equals(#httpServletRequest.requestURI, '/dashboard')} ? 'nav-link active' : 'nav-link'" href="/dashboard">
+                            <i class="ni ni-tv-2 text-yellow"></i>
+                            <span class="nav-link-text">Dashboard</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item" sec:authorize="hasRole('TRAINER')">
+                        <a th:class="${#strings.equals(#httpServletRequest.requestURI, '/dashboard')} ? 'nav-link active' : 'nav-link'" href="/dashboard">
+                            <i class="ni ni-tv-2 text-yellow"></i>
+                            <span class="nav-link-text">Dashboard</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                        <a th:class="${#strings.equals(#httpServletRequest.requestURI, '/dashboard-admin')} ? 'nav-link active' : 'nav-link'" href="/dashboard-admin">
+                            <i class="ni ni-tv-2 text-yellow"></i>
+                            <span class="nav-link-text">Dashboard</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a th:class="${#strings.equals(#httpServletRequest.requestURI, '/attendance')} ? 'nav-link active' : 'nav-link'" href="/attendance">
+                            <i class="ni ni-badge text-primary"></i>
+                            <span class="nav-link-text">Attendance</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/module/class}">
+                            <i class="ni ni-book-bookmark text-orange"></i>
+                            <span class="nav-link-text">Learning Class</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ni ni-books text-info"></i>
+                            <span class="nav-link-text">Project Library<i class="ml-3 fas fa-angle-down"></i></span>
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right pl-4">
+                            <a class="dropdown-item" th:href="@{/finalProject/search-project}" sec:authorize="hasRole('TRAINEE')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Search Project</span>
+                            </a>
+                            <a class="dropdown-item" th:href="@{/finalProject/my-project}" sec:authorize="hasRole('TRAINEE')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">My Project</span>
+                            </a>
+
+                            <a class="dropdown-item" th:href="@{/finalProject/title-submission}" sec:authorize="hasRole('TRAINER')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Title Submission</span>
+                            </a>
+                            <a class="dropdown-item" th:href="@{/finalProject/project-submission}" sec:authorize="hasRole('TRAINER')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Project Submission</span>
+                            </a>
+                            <a class="dropdown-item" th:href="@{/admin/trainee}" sec:authorize="hasRole('ADMIN')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Data Trainee</span>
+                            </a>
+                            <a class="dropdown-item" th:href="@{/admin/trainer}" sec:authorize="hasRole('ADMIN')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Data Trainer</span>
+                            </a>
+                            <a class="dropdown-item" th:href="@{/admin/alumni}" sec:authorize="hasRole('ADMIN')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Data Alumni</span>
+                            </a>
+                            <a class="dropdown-item" th:href="@{/finalProject/project}" sec:authorize="hasRole('ADMIN')">
+                                <i class="ni ni-books text-info"></i>
+                                <span class="nav-link-text">Data Project</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item" sec:authorize="hasRole('TRAINER')">
+                        <a th:class="${#strings.equals(#httpServletRequest.requestURI, '/feedback')} ? 'nav-link active' : 'nav-link'" href="/feedback">
+                            <i class="ni ni-paper-diploma text-default"></i>
+                            <span class="nav-link-text">Feedback Form</span>
+                        </a>
+                    </li>
+                     <li class="nav-item" sec:authorize="hasRole('TRAINEE')">
+                        <a th:class="${#strings.equals(#httpServletRequest.requestURI, '/feedback')} ? 'nav-link active' : 'nav-link'" href="/feedback">
+                            <i class="ni ni-paper-diploma text-default"></i>
+                            <span class="nav-link-text">Feedback Form</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

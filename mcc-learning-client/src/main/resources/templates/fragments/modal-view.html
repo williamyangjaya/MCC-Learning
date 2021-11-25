@@ -1,0 +1,37 @@
+<div th:fragment="modal-view">
+    <!--Modal--> 
+    <div class="modal fade" id="modal-view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel" style="margin: 30px 0px 0px 100px; font-size: 24px">View Attendance</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin: -1rem -1rem -1rem 10px">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding: 2.5rem">
+                    <form id="form-view" name="myForm" action="#" method="post" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="from-date">Batch</label>
+                            <input type="text" id="batch" name="batch" class="form-control" aria-describedby="batchAddHelp" placeholder="Input batch" required>
+                            <div class="invalid-feedback" style="font-size: 12">
+                                Please input batch
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="to-date">Date</label>
+                            <input type="date" id="date" name="date" class="form-control" aria-describedby="dateHelp" placeholder="Choose Date" required>
+                            <div class="invalid-feedback" style="font-size: 12">
+                                Please choose Date
+                            </div>
+                        </div>
+                        <div class="modal-footer border-top-0 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success">View</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--     End Of Modal -->
+</div>

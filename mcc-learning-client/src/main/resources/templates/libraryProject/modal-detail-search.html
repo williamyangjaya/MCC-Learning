@@ -1,0 +1,41 @@
+<!--INI PAGE MODAL EDIT BUTTON DETAIL SEARCH PROJECT-->
+<div class="modal-detail-search" th:fragment="modal-detail-search">
+
+    <div class="modal fade" id="search-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Search Project MCC</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="detailProject">
+                        <div class="form-group">
+                            <label for="name">Trainer Name</label>
+                            <input type="text" id="nama_trainer" class="form-control" readonly="readonly"> 
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="decription">Description</label>
+                            <textarea id="deskripsi_trainee" class="form-control" style="height: 100px" 
+                                      readonly="readonly"> </textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skema">Scheme</label>
+                            <a href="" target='_blank' type="text" id="skema_trainee" class="form-control">Click Here</a> 
+                        </div>
+
+                        <div class="form-group">
+                            <label for="link">Link Project</label>
+                            <a href="" target='_blank' type="text" id="link_trainee" class="form-control">Click Here</a> 
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

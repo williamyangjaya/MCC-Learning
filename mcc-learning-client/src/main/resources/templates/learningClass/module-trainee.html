@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Module</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+
+
+<body>
+    <!-- Sidenav -->
+    <nav th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav th:replace="fragments/topnav:: topnav"></nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/dashboard">Dashboards</a></li>
+                                <li class="breadcrumb-item"><a th:href="@{/module/class}">...</a></li>
+                                <li class="breadcrumb-item"><a th:href="@{/module/category}">...</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Module</li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                    <div class="content">
+                        <div class="card mb-4">
+                            <hr class="p-0 m-0"></hr>
+                            <div class="p-4">
+                                <ul class="timeline">
+                                    <li th:each="m:${module}" >
+                                        <a href="" th:text="${m.title}" class="font-weight-bold"></a>
+                                    </li>
+                                    <button type="button" class="btn btn-sm btn-neutral float-right" data-toggle="modal" 
+                                            data-target="#modal-download">
+                                        Download Module
+                                    </button>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="fragments/footer :: footer"></footer>
+
+
+        <div th:replace="fragments/script :: script"></div>
+
+</body>
+
+</html>

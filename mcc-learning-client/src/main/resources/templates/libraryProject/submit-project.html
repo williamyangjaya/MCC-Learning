@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Submit Full Project - Trainee</title>
+    <div th:replace="fragments/head :: head"></div>    
+</head>
+<body class="sb-nav-fixed">
+    <div th:replace="fragments/sidenav-dashboard :: sidenav-dashboard"></div>
+    <div id="layoutSidenav">
+        <div th:replace="fragments/topnav :: topnav"></div>
+        <div id="layoutSidenav_content">
+            <div id="layoutSidenav_content">
+                <div class="p-5">
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Submit Full Project</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">MCC-Project/Trainee/Submit-Full-Project</li>
+                        </ol>
+
+                        <div class="modal fade" id="update-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header border-bottom-0">
+                                        <h5 class="modal-title" id="exampleModalLabel">Update Full Project</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="submitProject" class="needs-validation" novalidate>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="judul">Project Title</label>
+                                                <input type="text" id="judul" class="form-control" placeholder="Project Title" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your title.
+                                                </div><br>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="deskripsi">Description</label>
+                                                <input type="text" id="deskripsi" class="form-control" placeholder="Description" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your deskripsi.
+                                                </div><br>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Member 1</label>
+                                                <select class="form-control" id="idMcc" required>
+                                                    <option value="" selected>--Choose Member 1--</option>
+                                                    <option th:each="id:${idMcc}" th:value="${id.idMcc}" th:text="${id.nama}" required></option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select your member 1.
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput2">Member 2</label>
+                                                <select class="form-control" id="idMcc" required>
+                                                    <option value="" selected>--Choose Member 2--</option>
+                                                    <option th:each="id:${idMcc}" th:value="${id.idMcc}" th:text="${id.nama}" required></option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select your member 2.
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput3">Member 3</label>
+                                                <select class="form-control" id="idMcc" required>
+                                                    <option value="" selected>--Choose Member 3--</option>
+                                                    <option th:each="id:${idMcc}" th:value="${id.idMcc}" th:text="${id.nama}" required></option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select your member 1.
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="erd">ERD</label>
+                                                <input type="text" id="erd" class="form-control" placeholder="ERD" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your erd.
+                                                </div><br>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="uml">UML</label>
+                                                <input type="text" id="uml" class="form-control" placeholder="UML" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your uml.
+                                                </div><br>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="judul">Scheme</label>
+                                                <input type="text" id="skema" class="form-control" placeholder="Scheme" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your schema.
+                                                </div><br>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="link">Link</label>
+                                                <input type="text" id="link" class="form-control" placeholder="Link" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter your link.
+                                                </div><br>
+                                            </div>
+
+                                            <div class="modal-footer border-top-0 d-flex justify-content-center">
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                                <button data-dismiss="modal" class="btn btn-danger col-2">Back</button>
+                                            </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:replace="fragments/footer :: footer"></div>                  
+        <script th:src="@{/js/form-validation.js}"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+.module-button {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.navtab {
+  color: whitesmoke;
+  border-top: 2px solid whitesmoke !important;
+  border-left: 2px solid whitesmoke !important;
+  border-right: 2px solid whitesmoke !important;
+  border-radius: 5%;
+}
+
+.navtab:hover {
+  background-color: whitesmoke;
+  color: black;
+}
